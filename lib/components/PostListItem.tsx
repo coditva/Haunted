@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import moment from 'moment';
 
-import type { Post } from 'lib/stores/Post';
+import type Post from 'lib/stores/Post';
 
 function Title({ title }: { title: string }) {
   return (

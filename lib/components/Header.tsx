@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Logo from 'lib/components/Logo';
 
-import type { SiteType, NavigationItem } from 'lib/stores/Site';
+import type Site from 'lib/stores/Site';
+import type NavigationItem from 'lib/stores/NavigationItem';
 
 function Navigation({ items }: { items: Array<NavigationItem> }) {
   return (
@@ -21,7 +22,7 @@ function Navigation({ items }: { items: Array<NavigationItem> }) {
   );
 }
 
-export default function Header({ site }: { site: SiteType }) {
+export default function Header({ site }: { site: Site }) {
   return (
     <div className='flex flex-col sm:flex-row sm:justify-between items-center p-4 sm:px-8'>
       <Logo logo={site.logo} title={site.title} />

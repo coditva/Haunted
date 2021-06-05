@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Logo from 'lib/components/Logo';
 
-import type { SiteType, NavigationItem } from 'lib/stores/Site';
+import type Site from 'lib/stores/Site';
+import type NavigationItem from 'lib/stores/NavigationItem';
 
 function Description({ description }: { description: string }) {
   return (
@@ -17,7 +18,7 @@ function Social() {
   );
 }
 
-function LeftContent({ site }: { site: SiteType }) {
+function LeftContent({ site }: { site: Site }) {
   return (
     <div className='flex-1'>
       <Logo title={site.title} logo={site.logo} />
@@ -51,7 +52,7 @@ function SecondaryNavigation({ items }: { items: Array<NavigationItem> }) {
   );
 }
 
-export default function Footer({ site }: { site: SiteType }) {
+export default function Footer({ site }: { site: Site }) {
   return (
     <div className='max-w-4xl md:max-w-none mx-auto md:mx-0'>
       <div className='flex flex-col sm:flex-row-reverse sm:justify-between items-start space-y-8 sm:space-y-0 py-5 px-4 sm:py-10 sm:px-8'>

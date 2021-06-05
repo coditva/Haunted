@@ -6,9 +6,8 @@ import Footer from 'lib/components/Footer';
 import PostList from 'lib/components/PostList';
 
 import type { PostsType } from 'lib/stores/Posts';
-import type { SiteType } from 'lib/stores/Site';
 
-export default function Home({ posts, site }: { posts: PostsType, site: SiteType }) {
+export default function Home({ posts, site }: { posts: PostsType, site: Site }) {
   return (
     <div>
       <Meta
