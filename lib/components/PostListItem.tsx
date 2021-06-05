@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link'
+import Link from 'next/link';
 import moment from 'moment';
 
 import type { Post } from 'lib/stores/Post';
