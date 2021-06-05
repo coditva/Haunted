@@ -7,7 +7,7 @@ export type Post = {
   feature_image?: string
   featured: boolean
   visibility: string
-  created_at: string
+  published_at: string
   excerpt?: string
   reading_time: number
 };

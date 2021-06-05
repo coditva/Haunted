@@ -13,9 +13,9 @@ export default function Logo({ logo, title }: { logo?: string, title: string }) 
               layout='fill'
             />
           ) : (
-            <div className='font-sans font-medium text-3xl antialiased hover:text-blue-500'>
+            <span className='font-sans font-medium text-3xl antialiased hover:text-blue-500'>
               {title}
-            </div>
+            </span>
           )}
         </a>
       </Link>

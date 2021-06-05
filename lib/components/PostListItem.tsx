@@ -6,14 +6,14 @@ import type { Post } from 'lib/stores/Post';
 
 function Title({ title }: { title: string }) {
   return (
-    <h1 className='font-sans font-semibold text-3xl sm:text-5xl lg:text-6xl py-2 antialiased hover:text-blue-500'>
+    <h1 className='font-sans font-semibold text-3xl sm:text-5xl py-2 antialiased hover:text-blue-500'>
       {title}
     </h1>
   );
 }
 
-function DateAndTime({ createdAt, readingTime }: { createdAt: string, readingTime: number }) {
-  const date = moment(createdAt).fromNow();
+function DateAndTime({ publishedAt, readingTime }: { publishedAt: string, readingTime: number }) {
+  const date = moment(publishedAt).fromNow();
   const unit = readingTime === 1 ? ' min' : ' mins';
 
   return (
@@ -41,7 +41,7 @@ Excerpt.defaultProps = {
 export default function PostListItem({ post }: { post: Post }) {
   return (
     <div className='flex flex-col items-center sm:flex-row-reverse sm:items-start px-4 py-6 max-w-4xl lg:max-w-5xl'>
-      <div className='sm:flex-shrink-0 sm:py-14'>
+      <div className='sm:flex-shrink-0 sm:mt-14'>
         <Link href={post.url}>
           <a href={post.url}>
             <Image
@@ -55,7 +55,7 @@ export default function PostListItem({ post }: { post: Post }) {
         </Link>
       </div>
       <div className='py-4 sm:px-4 max-w-xs sm:max-w-none'>
-        <DateAndTime createdAt={post.created_at} readingTime={post.reading_time} />
+        <DateAndTime publishedAt={post.published_at} readingTime={post.reading_time} />
         <Link href={post.url}>
           <a href={post.url}>
             <Title title={post.title} />
