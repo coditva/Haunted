@@ -7,6 +7,7 @@ module.exports = {
   plugins: [ '@typescript-eslint' ],
   extends: [ 'airbnb-typescript' ],
   rules: {
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'jsx-quotes': ['error', 'prefer-single']
   }
 };

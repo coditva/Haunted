@@ -4,10 +4,10 @@ export type Post = {
   title: string
   url: string
   comment_id: string
-  feature_image: string
+  feature_image?: string
   featured: boolean
   visibility: string
   created_at: string
-  excerpt: string
+  excerpt?: string
   reading_time: number
 };
