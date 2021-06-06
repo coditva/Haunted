@@ -39,11 +39,13 @@ Excerpt.defaultProps = {
 };
 
 export default function PostListItem({ post }: { post: Post }) {
+  const relativeUrl = `/${post.slug}`;
+
   return (
     <div className='flex flex-col items-center sm:flex-row-reverse sm:items-start px-4 py-6 max-w-4xl lg:max-w-5xl'>
       <div className='sm:flex-shrink-0 sm:mt-14'>
-        <Link href={post.url}>
-          <a href={post.url}>
+        <Link href={relativeUrl}>
+          <a href={relativeUrl}>
             <Image
               className='rounded-md hover:opacity-90'
               src={post.feature_image || ''}
@@ -56,8 +58,8 @@ export default function PostListItem({ post }: { post: Post }) {
       </div>
       <div className='py-4 sm:px-4 max-w-xs sm:max-w-none'>
         <DateAndTime publishedAt={post.published_at} readingTime={post.reading_time} />
-        <Link href={post.url}>
-          <a href={post.url}>
+        <Link href={relativeUrl}>
+          <a href={relativeUrl}>
             <Title title={post.title} />
           </a>
         </Link>
