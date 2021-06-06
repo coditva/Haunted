@@ -4,9 +4,15 @@ import Meta from 'lib/components/Meta';
 import PageContainer from 'lib/components/PageContainer';
 import PostList from 'lib/components/PostList';
 
+import type { GetStaticProps } from 'next';
 import type { PostsType } from 'lib/stores/Posts';
 
-export default function Home({ posts, site }: { posts: PostsType, site: Site }) {
+type Props = {
+  posts: PostsType
+  site: Site
+};
+
+export default function Home({ posts, site }: Props) {
   return (
     <div>
       <Meta
@@ -29,7 +35,7 @@ export default function Home({ posts, site }: { posts: PostsType, site: Site }) 
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<Props> = async function getStaticProps() {
   const [posts, site] = await Promise.all([
     Posts.get(),
     Site.get(),
@@ -41,4 +47,4 @@ export async function getStaticProps() {
       site,
     },
   };
-}
+};

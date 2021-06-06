@@ -8,9 +8,15 @@ import PageContainer from 'lib/components/PageContainer';
 import PostContainer from 'lib/components/PostContainer';
 import PageContentContainer from 'lib/components/PageContentContainer';
 
-export default function PageComponent(
-  { post, page, site }: { post?: Post, page?: Page, site: Site },
-) {
+import type { GetStaticProps, GetStaticPaths } from 'next';
+
+type Props = {
+  post: Post | null
+  page: Page | null
+  site: Site
+};
+
+export default function PageComponent({ post, page, site }: Props) {
   if (post) {
     return (
       <div>
@@ -59,16 +65,12 @@ export default function PageComponent(
 
   return null;
 }
-PageComponent.defaultProps = {
-  page: null,
-  post: null,
-};
 
 type ParamType = {
   slug: string
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths<ParamType> = async function getStaticPaths() {
   const [pages, posts] = await Promise.all([
     Pages.get(),
     Posts.get(),
@@ -91,20 +93,30 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }: { params: ParamType }) {
+export const getStaticProps: GetStaticProps<Props, ParamType> = async function getStaticProps({
+  params,
+}) {
+  if (!params) {
+    throw new Error('Invalid params');
+  }
+
   const [post, page, site] = await Promise.allSettled([
     Post.get(params.slug),
     Page.get(params.slug),
     Site.get(),
   ]);
 
+  if (site.status === 'rejected') {
+    throw new Error('Unable to fetch site data');
+  }
+
   return {
     props: {
-      post: post.status === 'fulfilled' && post.value,
-      page: page.status === 'fulfilled' && page.value,
-      site: site.status === 'fulfilled' && site.value,
+      post: post.status === 'fulfilled' ? post.value : null,
+      page: page.status === 'fulfilled' ? page.value : null,
+      site: site.value,
     },
   };
-}
+};
