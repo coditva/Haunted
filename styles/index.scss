@@ -101,7 +101,7 @@
       @apply shadow;
       @apply hover:shadow-md;
       @apply transition-shadow;
-      @apply duration-700;
+      @apply duration-300;
       @apply ease-in-out
     }
 
@@ -127,9 +127,22 @@
       @apply font-semibold;
     }
 
+    .kg-bookmark-description {
+      @apply my-4;
+    }
+
+    .kg-bookmark-metadata {
+      @apply flex;
+      @apply items-center;
+    }
+
     .kg-bookmark-icon {
       @apply my-2;
       @apply h-5;
+    }
+
+    .kg-bookmark-author {
+      @apply ml-2;
     }
 
     .kg-bookmark-thumbnail {
@@ -141,6 +154,7 @@
         @apply w-full;
         @apply absolute;
         @apply object-cover;
+        @apply rounded-r-md;
       }
     }
   }
