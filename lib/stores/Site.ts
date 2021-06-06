@@ -10,6 +10,8 @@ export default class Site extends Data {
 
   cover_image?: string;
 
+  icon?: string;
+
   url: string;
 
   navigation: Array<NavigationItem>;
@@ -39,6 +41,7 @@ export default class Site extends Data {
     this.description = data.description;
     this.logo = data.logo;
     this.cover_image = data.cover_image;
+    this.icon = data.icon;
     this.url = data.url;
     this.navigation = data.navigation;
     this.secondary_navigation = data.secondary_navigation;

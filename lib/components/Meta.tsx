@@ -4,6 +4,7 @@ type MetaProps = {
   title: string
   description?: string
   image?: string
+  icon?: string
   url: string
   metaTitle?: string
   metaDescription?: string
@@ -21,6 +22,7 @@ export default function Meta(props: MetaProps) {
     title,
     description,
     image,
+    icon,
     url,
     metaTitle,
     metaDescription,
@@ -39,6 +41,7 @@ export default function Meta(props: MetaProps) {
 
       <meta name='description' content={metaDescription || description} />
       { charset && (<meta charSet={charset} />) }
+      { icon && (<link rel='shortcut icon' href={icon} />) }
 
       { /* Open Graph */ }
       <meta property='og:site_name' content={title} />
@@ -61,6 +64,7 @@ export default function Meta(props: MetaProps) {
 Meta.defaultProps = {
   description: '',
   image: '',
+  icon: '',
   metaTitle: '',
   metaDescription: '',
   ogImage: '',

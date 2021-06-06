@@ -18,6 +18,7 @@ export default function Home({ posts, site }: Props) {
       <Meta
         title={site.title}
         url={site.url}
+        icon={site.icon}
         description={site.description}
         metaTitle={site.meta_title}
         metaDescription={site.meta_description}

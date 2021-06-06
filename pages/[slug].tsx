@@ -23,6 +23,7 @@ export default function PageComponent({ post, page, site }: Props) {
         <Meta
           title={post.title}
           url={post.url}
+          icon={site.icon}
           description={post.excerpt}
           metaTitle={post.meta_title}
           metaDescription={post.meta_description}
@@ -46,6 +47,7 @@ export default function PageComponent({ post, page, site }: Props) {
         <Meta
           title={page.title}
           url={page.url}
+          icon={site.icon}
           description={page.excerpt}
           metaTitle={page.meta_title}
           metaDescription={page.meta_description}
