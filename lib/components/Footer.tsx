@@ -54,7 +54,7 @@ function SecondaryNavigation({ items }: { items: Array<NavigationItem> }) {
 
 export default function Footer({ site }: { site: Site }) {
   return (
-    <div className='max-w-4xl md:max-w-none mx-auto md:mx-0'>
+    <div className='max-w-4xl mx-auto my-16 md:max-w-none md:mx-0'>
       <div className='flex flex-col sm:flex-row-reverse sm:justify-between items-start space-y-8 sm:space-y-0 py-5 px-4 sm:py-10 sm:px-8'>
         <RightContent />
         <LeftContent site={site} />

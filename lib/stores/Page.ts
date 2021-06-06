@@ -1,6 +1,6 @@
 import Data from 'lib/stores/Data';
 
-export default class Post extends Data {
+export default class Page extends Data {
   slug: string;
 
   id: string;
@@ -19,11 +19,7 @@ export default class Post extends Data {
 
   visibility: string;
 
-  published_at: string;
-
   excerpt?: string;
-
-  reading_time: number;
 
   html: string;
 
@@ -43,7 +39,7 @@ export default class Post extends Data {
 
   twitter_description?: string;
 
-  constructor(data: Post) {
+  constructor(data: Page) {
     super();
 
     this.slug = data.slug;
@@ -55,9 +51,7 @@ export default class Post extends Data {
     this.feature_image = data.feature_image;
     this.featured = data.featured;
     this.visibility = data.visibility;
-    this.published_at = data.published_at;
     this.excerpt = data.excerpt;
-    this.reading_time = data.reading_time;
     this.html = data.html;
     this.meta_title = data.meta_title;
     this.meta_description = data.meta_description;
@@ -69,10 +63,10 @@ export default class Post extends Data {
     this.twitter_description = data.twitter_description;
   }
 
-  static async get(post: string): Promise<Post> {
-    const path = `/content/posts/slug/${post}`;
+  static async get(page: string): Promise<Page> {
+    const path = `/content/pages/slug/${page}`;
     const response = await super.fetch(path);
 
-    return response.posts[0];
+    return response.pages[0];
   }
 }

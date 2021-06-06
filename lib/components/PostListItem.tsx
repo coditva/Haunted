@@ -13,7 +13,7 @@ function Title({ title }: { title: string }) {
 }
 
 function DateAndTime({ publishedAt, readingTime }: { publishedAt: string, readingTime: number }) {
-  const date = moment(publishedAt).fromNow();
+  const date = moment(publishedAt).format('MMMM Do, YYYY');
   const unit = readingTime === 1 ? ' min' : ' mins';
 
   return (

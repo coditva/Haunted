@@ -1,8 +1,7 @@
 import Posts from 'lib/stores/Posts';
 import Site from 'lib/stores/Site';
 import Meta from 'lib/components/Meta';
-import Header from 'lib/components/Header';
-import Footer from 'lib/components/Footer';
+import PageContainer from 'lib/components/PageContainer';
 import PostList from 'lib/components/PostList';
 
 import type { PostsType } from 'lib/stores/Posts';
@@ -23,11 +22,9 @@ export default function Home({ posts, site }: { posts: PostsType, site: Site }) 
         twitterTitle={site.twitter_title}
         twitterDescription={site.twitter_description}
       />
-      <div className='max-w-screen-xl mx-auto'>
-        <Header site={site} />
+      <PageContainer site={site}>
         <PostList posts={posts} />
-        <Footer site={site} />
-      </div>
+      </PageContainer>
     </div>
   );
 }
