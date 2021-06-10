@@ -32,7 +32,7 @@ export default function Input({
   return (
     <button
       className={className}
-      type={inputType} // eslint-ignore-line react/button-has-type
+      type={inputType}
     >
       {value}
     </button>
