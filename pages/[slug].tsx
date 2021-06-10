@@ -78,21 +78,12 @@ export const getStaticPaths: GetStaticPaths<ParamType> = async function getStati
     Posts.get(),
   ]);
 
-  const paths = new Array<{ params: ParamType }>().concat(
-    posts.map((post) => ({
-      params: {
-        slug: post.slug,
-      },
-    })),
-    pages.map((page) => ({
-      params: {
-        slug: page.slug,
-      },
-    })),
-  );
-
   return {
-    paths,
+    paths: [...posts, ...pages].map((data) => ({
+      params: {
+        slug: data.slug,
+      },
+    })),
     fallback: false,
   };
 };
