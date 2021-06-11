@@ -9,6 +9,12 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/button-has-type': 'off',
-    'jsx-quotes': ['error', 'prefer-single']
+    'jsx-quotes': ['error', 'prefer-single'],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        'devDependencies': ['tests/**/*']
+      },
+    ],
   }
 };
