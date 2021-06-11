@@ -1,4 +1,4 @@
-const { SUBSCRIBE_FORM } = process.env || {};
+import config from 'config';
 
 type Props = {
   children: JSX.Element | Array<JSX.Element>,
@@ -7,7 +7,7 @@ type Props = {
 export default function SubscribeForm({ children }: Props) {
   return (
     <form
-      action={SUBSCRIBE_FORM}
+      action={config.subscribeForm}
       method='post'
       target='popupwindow'
     >

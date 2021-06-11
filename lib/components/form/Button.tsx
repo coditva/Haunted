@@ -2,9 +2,9 @@ import classnames from 'tailwindcss-classnames';
 
 type Props = {
   value: string
+  inputType: 'submit' | 'button' | 'reset'
   fluid?: boolean
-  type: 'primary'
-  inputType: 'submit' | 'button' | 'reset',
+  type?: 'primary'
 };
 
 export default function Input({
@@ -41,4 +41,5 @@ export default function Input({
 
 Input.defaultProps = {
   fluid: false,
+  type: 'primary',
 };
