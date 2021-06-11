@@ -1,7 +1,7 @@
 import type { ShallowWrapper } from 'enzyme';
 
 import { shallow } from 'enzyme';
-import Logo from '../../../lib/components/Logo';
+import Logo from 'lib/components/Logo';
 
 describe('Logo', () => {
   describe('without logo link', () => {
