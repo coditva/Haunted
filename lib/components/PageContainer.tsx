@@ -8,7 +8,12 @@ export default function PageContainer({ children, site }: { children: JSX.Elemen
     <div className='max-w-screen-xl mx-auto'>
       <Header site={site} />
       {children}
-      <Footer site={site} />
+      <Footer
+        title={site.title}
+        description={site.description}
+        secondaryNavigation={site.secondary_navigation}
+        logo={site.logo}
+      />
     </div>
   );
 }
