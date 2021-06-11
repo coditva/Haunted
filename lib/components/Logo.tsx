@@ -1,7 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Logo({ logo, title }: { logo?: string, title: string }) {
+export type Props = {
+  logo?: string
+  title: string
+};
+
+export default function Logo({ logo, title }: Props) {
   return (
     <div className='break-words'>
       <Link href='/'>
@@ -9,7 +14,7 @@ export default function Logo({ logo, title }: { logo?: string, title: string }) 
           {logo ? (
             <Image
               src={logo}
-              alt='Logo'
+              alt={title}
               layout='fill'
             />
           ) : (
