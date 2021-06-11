@@ -39,7 +39,7 @@ function Subscription() {
       </div>
       <div className='flex-1 flex flex-col flex-wrap'>
         <SubscribeForm>
-          <Input type='text' name='email' placeholder='Email' fluid />
+          <Input type='text' isRequired name='email' placeholder='Email' fluid />
           <Button type='primary' inputType='submit' value='Subscribe' fluid />
         </SubscribeForm>
       </div>

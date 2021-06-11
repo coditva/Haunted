@@ -3,14 +3,16 @@ import classnames from 'tailwindcss-classnames';
 type Props = {
   type: 'text'
   name: string
-  placeholder: string,
+  placeholder: string
   fluid?: boolean
+  isRequired?: boolean
 };
 
 export default function Input({
   type,
   name,
   placeholder,
+  isRequired,
   fluid,
 }: Props) {
   return (
@@ -30,6 +32,7 @@ export default function Input({
       )}
       type={type}
       name={name}
+      required={isRequired}
       placeholder={placeholder}
     />
   );
@@ -37,4 +40,5 @@ export default function Input({
 
 Input.defaultProps = {
   fluid: false,
+  isRequired: false,
 };
