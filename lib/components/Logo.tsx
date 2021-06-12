@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import classnames from 'tailwindcss-classnames';
 
 export type Props = {
   logo?: string
@@ -18,7 +19,17 @@ export default function Logo({ logo, title }: Props) {
               layout='fill'
             />
           ) : (
-            <span className='font-sans font-medium text-3xl antialiased hover:text-blue-500'>
+            <span
+              className={classnames(
+                'font-sans',
+                'font-medium',
+                'text-3xl',
+                'antialiased',
+                'hover:text-blue-500',
+                'transition-colors',
+                'duration-700',
+              )}
+            >
               {title}
             </span>
           )}

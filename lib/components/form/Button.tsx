@@ -27,6 +27,8 @@ export default function Input({
     },
     'hover:bg-blue-400',
     'hover:border-blue-400',
+    'transition-colors',
+    'duration-500',
   );
 
   return (

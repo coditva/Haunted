@@ -1,12 +1,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import classnames from 'tailwindcss-classnames';
 import moment from 'moment';
 
 import type Post from 'lib/stores/Post';
 
 function Title({ title }: { title: string }) {
   return (
-    <h1 className='font-sans font-semibold text-3xl sm:text-5xl py-2 antialiased hover:text-blue-500'>
+    <h1
+      className={classnames(
+        'font-sans',
+        'font-semibold',
+        'text-3xl',
+        'sm:text-5xl',
+        'py-2',
+        'antialiased',
+        'hover:text-blue-500',
+        'transition-colors',
+        'duration-300',
+      )}
+    >
       {title}
     </h1>
   );
@@ -44,7 +57,7 @@ export default function PostListItem({ post }: { post: Post }) {
         <Link href={relativeUrl}>
           <a href={relativeUrl}>
             <Image
-              className='rounded-md hover:opacity-90'
+              className='rounded-md hover:opacity-80 transition-opacity duration-300'
               src={post.feature_image || ''}
               alt={post.title}
               height={160}
