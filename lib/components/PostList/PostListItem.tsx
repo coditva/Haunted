@@ -17,7 +17,7 @@ function DateAndTime({ publishedAt, readingTime }: { publishedAt: string, readin
   const unit = readingTime === 1 ? ' min' : ' mins';
 
   return (
-    <div className='font-mono text-xs text-gray-500 py-2 antialiased'>
+    <div className='font-mono text-xs text-gray-500 dark:text-gray-400 py-2 antialiased'>
       {`${date} – ${readingTime} ${unit} read`}
     </div>
   );
@@ -29,7 +29,7 @@ function Excerpt({ excerpt }: { excerpt: string }) {
   }
 
   return (
-    <div className='font-sans font-medium text-gray-500 py-2 antialiased'>
+    <div className='font-sans font-medium text-gray-500 dark:text-gray-400 py-2 antialiased'>
       {excerpt}
     </div>
   );

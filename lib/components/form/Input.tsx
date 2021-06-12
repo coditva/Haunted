@@ -15,21 +15,23 @@ export default function Input({
   isRequired,
   fluid,
 }: Props) {
+  const classNames = classnames(
+    'border',
+    'px-4',
+    'py-2',
+    'm-1',
+    'rounded',
+    'border-black',
+    {
+      'flex-1': fluid,
+    },
+    'focus:outline-none',
+    'focus:border-blue-500',
+  );
+
   return (
     <input
-      className={classnames(
-        'border',
-        'px-4',
-        'py-2',
-        'm-1',
-        'rounded',
-        'border-black',
-        {
-          'flex-1': fluid,
-        },
-        'focus:outline-none',
-        'focus:border-blue-500',
-      )}
+      className={`${classNames} dark:border-gray-200 dark:text-black`}
       type={type}
       name={name}
       required={isRequired}
