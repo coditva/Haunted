@@ -10,62 +10,71 @@ import PageContent from 'lib/components/PageContent';
 
 import type { GetStaticProps, GetStaticPaths } from 'next';
 
-type Props = {
-  post: Post | null
-  page: Page | null
+interface PageProps {
+  type: 'page'
+  page: Page
   site: Site
-};
+}
 
-export default function PageComponent({ post, page, site }: Props) {
-  if (post) {
-    return (
-      <div>
-        <Meta
-          title={post.title}
-          url={post.url}
-          icon={site.icon}
-          description={post.excerpt}
-          metaTitle={post.meta_title}
-          metaDescription={post.meta_description}
-          ogImage={post.og_image}
-          ogTitle={post.og_title}
-          ogDescription={post.og_description}
-          twitterImage={post.twitter_image}
-          twitterTitle={post.twitter_title}
-          twitterDescription={post.twitter_description}
-        />
-        <PageContainer site={site}>
-          <PostContainer post={post} />
-        </PageContainer>
-      </div>
-    );
-  }
+interface PostProps {
+  type: 'post'
+  post: Post
+  site: Site
+}
 
-  if (page) {
-    return (
-      <div>
-        <Meta
-          title={page.title}
-          url={page.url}
-          icon={site.icon}
-          description={page.excerpt}
-          metaTitle={page.meta_title}
-          metaDescription={page.meta_description}
-          ogImage={page.og_image}
-          ogTitle={page.og_title}
-          ogDescription={page.og_description}
-          twitterImage={page.twitter_image}
-          twitterTitle={page.twitter_title}
-          twitterDescription={page.twitter_description}
-        />
-        <PageContainer site={site}>
-          <PageContentContainer page={page} />
-        </PageContainer>
-      </div>
-    );
-  }
+type Props = PageProps | PostProps;
 
-  return null;
+export default function PageComponent(props: Props) {
+  const { site } = props;
+  const {
+    title,
+    url,
+    excerpt,
+    meta_title: metaTitle,
+    meta_description: metaDescription,
+    og_image: ogImage,
+    og_title: ogTitle,
+    og_description: ogDescription,
+    twitter_image: twitterImage,
+    twitter_title: twitterTitle,
+    twitter_description: twitterDescription,
+  } = (
+    // eslint-disable-next-line react/destructuring-assignment
+    props.type === 'page' ? props.page : props.post
+  );
+
+  return (
+    <div>
+      <Meta
+        title={title}
+        url={url}
+        icon={site.icon}
+        description={excerpt}
+        metaTitle={metaTitle}
+        metaDescription={metaDescription}
+        ogImage={ogImage}
+        ogTitle={ogTitle}
+        ogDescription={ogDescription}
+        twitterImage={twitterImage}
+        twitterTitle={twitterTitle}
+        twitterDescription={twitterDescription}
+      />
+      <PageContainer site={site}>
+        {
+          // eslint-disable-next-line react/destructuring-assignment
+          props.type === 'page' ? (
+
+            // eslint-disable-next-line react/destructuring-assignment
+            <PageContent page={props.page} />
+          ) : (
+
+            // eslint-disable-next-line react/destructuring-assignment
+            <PostContent post={props.post} />
+          )
+        }
+      </PageContainer>
+    </div>
+  );
 }
 
 type ParamType = {
@@ -95,21 +104,27 @@ export const getStaticProps: GetStaticProps<Props, ParamType> = async function g
     throw new Error('Invalid params');
   }
 
-  const [post, page, site] = await Promise.allSettled([
-    Post.get(params.slug),
-    Page.get(params.slug),
-    Site.get(),
-  ]);
+  const site = await Site.get();
+  const post = await Post.get(params.slug);
 
-  if (site.status === 'rejected') {
-    throw new Error('Unable to fetch site data');
+  if (post) {
+    return {
+      props: {
+        type: 'post',
+        post,
+        site,
+      },
+    };
   }
+
+  // fallback - this must be a page
+  const page = await Page.get(params.slug);
 
   return {
     props: {
-      post: post.status === 'fulfilled' ? post.value : null,
-      page: page.status === 'fulfilled' ? page.value : null,
-      site: site.value,
+      type: 'page',
+      page,
+      site,
     },
   };
 };
