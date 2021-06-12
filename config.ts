@@ -3,5 +3,6 @@ export default {
   ghost: {
     baseUrl: process.env.GHOST_URL || 'example.com',
     contentKey: process.env.CONTENT_KEY || 'content-key',
+    apiVersion: 3,
   },
 };
