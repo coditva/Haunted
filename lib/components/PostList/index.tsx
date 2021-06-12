@@ -1,4 +1,4 @@
-import PostListItem from 'lib/components/PostListItem';
+import PostListItem from 'lib/components/PostList/PostListItem';
 
 import type { PostsType } from 'lib/stores/Posts';
 

@@ -2,7 +2,7 @@ import Page from 'lib/components/Page';
 
 import type Post from 'lib/stores/Post';
 
-export default function PostContainer({ post }: { post: Post }) {
+export default function PostContent({ post }: { post: Post }) {
   return (
     <Page
       hasCover

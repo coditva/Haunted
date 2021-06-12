@@ -4,19 +4,27 @@ import Footer from 'lib/components/Footer';
 import type Site from 'lib/stores/Site';
 
 export default function PageContainer({ children, site }: { children: JSX.Element, site: Site }) {
+  const {
+    title,
+    logo,
+    description,
+    navigation,
+    secondary_navigation: secondaryNavigation,
+  } = site;
+
   return (
     <div className='max-w-screen-xl mx-auto'>
       <Header
-        title={site.title}
-        navigation={site.navigation}
-        logo={site.logo}
+        title={title}
+        navigation={navigation}
+        logo={logo}
       />
       {children}
       <Footer
-        title={site.title}
-        description={site.description}
-        secondaryNavigation={site.secondary_navigation}
-        logo={site.logo}
+        title={title}
+        description={description}
+        secondaryNavigation={secondaryNavigation}
+        logo={logo}
       />
     </div>
   );

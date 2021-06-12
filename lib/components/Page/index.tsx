@@ -1,26 +1,20 @@
 import HtmlContainer from 'lib/components/HtmlContainer';
-import PageCover from 'lib/components/PageCover';
-import PageTitle from 'lib/components/PageTitle';
+import PageCover from 'lib/components/Page/PageCover';
+import PageTitle from 'lib/components/Page/PageTitle';
 
-export default function Page(
-  {
-    title,
-    excerpt,
-    image,
-    publishedAt,
-    readingTime,
-    html,
-    hasCover,
-  }: {
-    title: string,
-    excerpt?: string,
-    image?: string,
-    publishedAt?: string,
-    readingTime?: number,
-    html: string,
-    hasCover?: boolean
-  },
-) {
+type Props = {
+  title: string,
+  html: string,
+  hasCover?: boolean
+  excerpt?: string,
+  image?: string,
+  publishedAt?: string,
+  readingTime?: number,
+};
+
+export default function Page({
+  title, excerpt, image, publishedAt, readingTime, html, hasCover,
+}: Props) {
   return (
     <div>
       {hasCover ? (

@@ -5,8 +5,8 @@ import Post from 'lib/stores/Post';
 import Site from 'lib/stores/Site';
 import Meta from 'lib/components/Meta';
 import PageContainer from 'lib/components/PageContainer';
-import PostContainer from 'lib/components/PostContainer';
-import PageContentContainer from 'lib/components/PageContentContainer';
+import PostContent from 'lib/components/PostContent';
+import PageContent from 'lib/components/PageContent';
 
 import type { GetStaticProps, GetStaticPaths } from 'next';
 

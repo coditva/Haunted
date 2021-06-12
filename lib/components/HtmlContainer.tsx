@@ -1,4 +1,4 @@
-export default function PostContainer({ html }: { html: string }) {
+export default function HtmlContainer({ html }: { html: string }) {
   return (
     <div
       className='html-container'
