@@ -111,7 +111,7 @@ export const getStaticProps: GetStaticProps<Props, ParamType> = async function g
   }
 
   const site = await Site.get();
-  const post = await Post.get(params.slug);
+  const post = await Post.get(params.slug).catch(() => { /* noop */ });
 
   if (post) {
     return {
