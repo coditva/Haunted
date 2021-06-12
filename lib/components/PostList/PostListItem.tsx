@@ -23,7 +23,7 @@ function DateAndTime({ publishedAt, readingTime }: { publishedAt: string, readin
   );
 }
 
-function Excerpt({ excerpt }: { excerpt?: string }) {
+function Excerpt({ excerpt }: { excerpt: string }) {
   if (!excerpt) {
     return null;
   }
@@ -34,9 +34,6 @@ function Excerpt({ excerpt }: { excerpt?: string }) {
     </div>
   );
 }
-Excerpt.defaultProps = {
-  excerpt: null,
-};
 
 export default function PostListItem({ post }: { post: Post }) {
   const relativeUrl = `/${post.slug}`;
@@ -63,7 +60,7 @@ export default function PostListItem({ post }: { post: Post }) {
             <Title title={post.title} />
           </a>
         </Link>
-        <Excerpt excerpt={post.excerpt} />
+        {post.excerpt && <Excerpt excerpt={post.excerpt} />}
       </div>
     </div>
   );
