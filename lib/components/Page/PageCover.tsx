@@ -1,31 +1,16 @@
-import moment from 'moment';
+import DateAndTime from 'lib/components/Page/DateAndTime';
 
-function DateAndTime({ publishedAt, readingTime }: { publishedAt: string, readingTime: number }) {
-  const date = moment(publishedAt).format('MMMM Do, YYYY');
-  const unit = readingTime === 1 ? ' min' : ' mins';
+type Props = {
+  title: string,
+  excerpt: string,
+  image?: string,
+  publishedAt?: string,
+  readingTime?: number,
+};
 
-  return (
-    <div className='font-mono text-xs text-gray-100 antialiased'>
-      {`${date} – ${readingTime} ${unit} read`}
-    </div>
-  );
-}
-
-export default function PageCover(
-  {
-    title,
-    excerpt,
-    image,
-    publishedAt,
-    readingTime,
-  }: {
-    title: string,
-    excerpt: string,
-    image?: string,
-    publishedAt?: string,
-    readingTime?: number,
-  },
-) {
+export default function PageCover({
+  title, excerpt, image, publishedAt, readingTime,
+}: Props) {
   const style = { height: 'min(max(70vh, 350px), 500px)' };
   const content = (
     <div className='absolute left-0 right-0 bottom-0 ml-4 mr-10 py-4 md:mr-4'>
