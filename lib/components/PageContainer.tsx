@@ -6,7 +6,11 @@ import type Site from 'lib/stores/Site';
 export default function PageContainer({ children, site }: { children: JSX.Element, site: Site }) {
   return (
     <div className='max-w-screen-xl mx-auto'>
-      <Header site={site} />
+      <Header
+        title={site.title}
+        navigation={site.navigation}
+        logo={site.logo}
+      />
       {children}
       <Footer
         title={site.title}
