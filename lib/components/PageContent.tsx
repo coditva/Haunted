@@ -1,10 +1,14 @@
-import PageComponent from 'lib/components/Page';
+import Page from 'lib/components/Page';
 
-import type Page from 'lib/stores/Page';
+type PageType = {
+  title: string
+  feature_image?: string
+  html: string
+};
 
-export default function PageContent({ page }: { page: Page }) {
+export default function PageContent({ page }: { page: PageType }) {
   return (
-    <PageComponent
+    <Page
       title={page.title}
       image={page.feature_image}
       html={page.html}
