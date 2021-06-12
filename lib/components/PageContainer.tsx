@@ -1,17 +1,25 @@
 import Header from 'lib/components/Header';
 import Footer from 'lib/components/Footer';
 
-import type Site from 'lib/stores/Site';
+import type NavigationItem from 'lib/stores/NavigationItem';
 
-export default function PageContainer({ children, site }: { children: JSX.Element, site: Site }) {
-  const {
-    title,
-    logo,
-    description,
-    navigation,
-    secondary_navigation: secondaryNavigation,
-  } = site;
+type Props = {
+  title: string
+  description: string
+  logo?: string
+  navigation: Array<NavigationItem>
+  secondaryNavigation: Array<NavigationItem>
+  children: JSX.Element | Array<JSX.Element>
+};
 
+export default function PageContainer({
+  title,
+  logo,
+  description,
+  navigation,
+  secondaryNavigation,
+  children,
+}: Props) {
   return (
     <div className='max-w-screen-xl mx-auto'>
       <Header
@@ -29,3 +37,7 @@ export default function PageContainer({ children, site }: { children: JSX.Elemen
     </div>
   );
 }
+
+PageContainer.defaultProps = {
+  logo: undefined,
+};

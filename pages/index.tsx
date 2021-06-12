@@ -29,7 +29,13 @@ export default function Home({ posts, site }: Props) {
         twitterTitle={site.twitter_title}
         twitterDescription={site.twitter_description}
       />
-      <PageContainer site={site}>
+      <PageContainer
+        title={site.title}
+        description={site.description}
+        navigation={site.navigation}
+        secondaryNavigation={site.secondary_navigation}
+        logo={site.logo}
+      >
         <PostList posts={posts} />
       </PageContainer>
     </div>

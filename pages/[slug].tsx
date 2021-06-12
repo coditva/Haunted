@@ -59,7 +59,13 @@ export default function PageComponent(props: Props) {
         twitterTitle={twitterTitle}
         twitterDescription={twitterDescription}
       />
-      <PageContainer site={site}>
+      <PageContainer
+        title={site.title}
+        description={site.description}
+        navigation={site.navigation}
+        secondaryNavigation={site.secondary_navigation}
+        logo={site.logo}
+      >
         {
           // eslint-disable-next-line react/destructuring-assignment
           props.type === 'page' ? (
