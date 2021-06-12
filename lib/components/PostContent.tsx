@@ -1,6 +1,13 @@
 import Page from 'lib/components/Page';
 
-import type Post from 'lib/stores/Post';
+type Post = {
+  title: string
+  html: string
+  excerpt?: string
+  feature_image?: string
+  published_at?: string
+  reading_time: number
+};
 
 export default function PostContent({ post }: { post: Post }) {
   return (
