@@ -1,7 +1,7 @@
 module.exports = {
   purge: [
-    './**/*.{js,ts,jsx,tsx}',
-    './**/*.{scss,css}',
+    './{lib,pages}/**/*.{js,ts,jsx,tsx}',
+    './styles/**/*.{scss,css}',
   ],
   darkMode: 'media',
 }
