@@ -12,18 +12,16 @@ export default class LinkReplacer {
       return null;
     }
 
-    const Node = node.name;
-
     return (
       <Link href={node.attribs.href}>
         { /* @ts-ignore */ }
-        <Node
+        <node.name
           {// eslint-disable-line react/jsx-props-no-spreading
             ...attributesToProps(node.attribs)
           }
         >
           {domToReact(node.children)}
-        </Node>
+        </node.name>
       </Link>
     );
   }

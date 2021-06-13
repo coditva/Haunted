@@ -8,7 +8,7 @@ const htmlParserOptions: HTMLReactParserOptions = {
   // @ts-ignore
   replace: (node: Element) => {
     // @ts-ignore
-    if (!node.type !== 'tag') {
+    if (node.type !== 'tag') {
       return;
     }
 
