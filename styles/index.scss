@@ -77,17 +77,18 @@
       @apply my-2;
       @apply p-4;
       @apply bg-gray-200;
-      @apply bg-gray-800;
+      @apply dark:bg-gray-800;
       @apply border;
       @apply border-gray-300;
-      @apply border-gray-700;
+      @apply dark:border-gray-700;
       @apply rounded-lg;
       @apply overflow-x-auto;
     }
 
     figcaption {
       @apply text-center;
-      @apply text-gray-500;
+      @apply text-gray-600;
+      @apply dark:text-gray-400;
       @apply text-sm;
       @apply font-sans;
       @apply mb-8;
