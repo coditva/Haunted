@@ -53,15 +53,15 @@ export default function PostListItem({ post }: { post: Post }) {
 
   return (
     <div className='flex flex-col items-center sm:flex-row-reverse sm:items-start px-4 py-6 max-w-4xl lg:max-w-5xl'>
-      <div className='sm:flex-shrink-0 sm:mt-14'>
+      <div className='relative h-40 w-80 sm:flex-shrink-0 sm:mt-14'>
         <Link href={relativeUrl}>
           <a href={relativeUrl}>
             <Image
               className='rounded-md hover:opacity-80 transition-opacity duration-300'
               src={post.feature_image || ''}
               alt={post.title}
-              height={160}
-              width={320}
+              layout='fill'
+              objectFit='cover'
             />
           </a>
         </Link>
