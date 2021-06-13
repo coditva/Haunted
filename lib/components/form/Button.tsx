@@ -21,12 +21,12 @@ export default function Input({
     'rounded',
     {
       'flex-1': fluid,
-      'bg-blue-500': type === 'primary',
+      'bg-blue-600': type === 'primary',
       'text-white': type === 'primary',
-      'border-blue-500': type === 'primary',
+      'border-blue-700': type === 'primary',
     },
-    'hover:bg-blue-400',
-    'hover:border-blue-400',
+    'hover:bg-blue-500',
+    'hover:border-blue-600',
     'transition-colors',
     'duration-500',
   );
