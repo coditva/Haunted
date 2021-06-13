@@ -11,6 +11,8 @@
     "test": "npm run test-lint && npm run test-unit"
   },
   "dependencies": {
+    "domhandler": "^4.2.0",
+    "html-react-parser": "^1.2.6",
     "moment": "2.29.1",
     "next": "10.2.3",
     "react": "17.0.2",
