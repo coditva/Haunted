@@ -10,6 +10,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 module.exports = {
+  i18n: {
+    locales: ['en-IN'],
+    defaultLocale: 'en-IN',
+  },
   images: {
     domains: imageDomains,
   },
