@@ -1,7 +1,20 @@
 {
   "name": "haunted",
   "version": "0.1.0",
-  "private": true,
+  "description": "A blog theme for Ghost as headless CMS",
+  "homepage": "https://github.com/coditva/Haunted",
+  "bugs": "https://github.com/coditva/Haunted/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coditva/Haunted.git"
+  },
+  "keywords": [
+    "ghost",
+    "ghost-theme",
+    "blog"
+  ],
+  "author": "Utkarsh Maheshwari <support@coditva.dev>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
