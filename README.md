@@ -2,6 +2,19 @@
 
 A blog theme for Ghost as headless CMS.
 
+# Features
+* Responsive.
+* Dark theme based on media query.
+* Support for posts and pages from [Ghost CMS][5].
+* Pre-fetches pages content using NextJS's `next/link` (even inside posts!).
+* Subscription using [Buttondown][1] newsletters.
+
+## Up next
+* Support for `next/images` inside posts.
+* Tags.
+* Author pages.
+* Better test coverage.
+
 # Getting Started
 
 This theme is built using **NextJS** and **TailwindCSS**. The whole website is
@@ -82,6 +95,7 @@ npm run test-integration
 [2]: https://ghost.org/integrations/custom-integrations/#copy-api-key
 [3]: https://vercel.com/
 [4]: https://www.netlify.com/
+[5]: https://ghost.org/docs/jamstack/
 
 
 ## License
