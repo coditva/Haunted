@@ -1,7 +1,8 @@
-# Haunted
+![Haunted](docs/assets/logo.png)
+
 A blog theme for Ghost as headless CMS.
 
-## Getting Started
+# Getting Started
 
 This theme is built using **NextJS** and **TailwindCSS**. The whole website is
 statically rendered to provide optimal performance. This, along with edge
@@ -11,7 +12,7 @@ the best experience possible for a blog or website.
 Additionally, there is provision to provide newsletter subscription using
 [Buttondown][1].
 
-### Configuring build environment
+## Configuring build environment
 
 To deploy this theme, start by setting up the environment:
 
@@ -21,7 +22,7 @@ file. To get your content key, follow the [Ghost guide][2].
 v4, you might also need to change the `ghost.apiVersion` to the appropriate
 value.
 
-### Configuring images
+## Configuring images
 
 You might also need to configure [`next.config.js`](next.config.js) for image
 domains and such if you have images from domains other than *Unsplash* and your
@@ -38,7 +39,7 @@ const imageDomains = [
 *If you're using Vercel or Netlify, you don't need to follow the steps below.
 They support NextJS out of the box.*
 
-### Build the theme
+## Build the theme
 
 To create a production build, simply punch in these commands:
 ```bash
@@ -46,7 +47,7 @@ npm install --only production
 npm run build
 ```
 
-### Start the server
+## Start the server
 Finally, start the server. This would start listening on port `3000`.
 ```bash
 npm start
@@ -55,7 +56,7 @@ npm start
 *You might need to configure any reverse proxy or load balancer to forward to
 this port.*
 
-## Contributing
+# Contributing
 
 Get started by running the server in development mode. This provides hot
 reloading of the app with every change. This would start listening on port
@@ -65,7 +66,7 @@ reloading of the app with every change. This would start listening on port
 npm run dev
 ```
 
-### Running tests
+## Running tests
 The tests are present in the [`tests/`](tests) directory. They are divided into
 unit tests and integration tests. The tests follow the similar directory
 structure as the `lib/components/` or `lib/stores/` directories.
