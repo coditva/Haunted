@@ -7,7 +7,7 @@ import type { HTMLReactParserOptions } from 'html-react-parser';
 const htmlParserOptions: HTMLReactParserOptions = {
   // @ts-ignore
   replace: (node: Element) => {
-    // @ts-ignore
+    // if this node is not an element, bail
     if (node.type !== 'tag') {
       return;
     }
