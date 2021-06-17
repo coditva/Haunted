@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { Element } from 'domhandler/lib/node';
 import { attributesToProps, domToReact } from 'html-react-parser';
+
+import type { Element } from 'domhandler/lib/node';
 
 export default class LinkReplacer {
   static canReplace(node: Element): boolean {
