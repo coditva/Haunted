@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { attributesToProps } from 'html-react-parser';
 import type { Element } from 'domhandler/lib/node';
 
-export default class LinkReplacer {
+export default class ImageReplacer {
   static canReplace(node: Element): boolean {
     return node.name === 'img' && Boolean(
       node.attribs && node.attribs.src && node.attribs.height && node.attribs.width,
