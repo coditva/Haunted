@@ -2,6 +2,8 @@
 
 A blog theme for Ghost as headless CMS.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fcoditva%2FHaunted&env=GHOST_URL,CONTENT_KEY,SUBSCRIBE_FORM&project-name=haunted-theme-ghost)
+
 # Features
 * Responsive.
 * Dark theme based on media query.
