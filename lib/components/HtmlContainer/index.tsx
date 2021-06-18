@@ -6,21 +6,7 @@ import type { HTMLReactParserOptions } from 'html-react-parser';
 
 const htmlParserOptions: HTMLReactParserOptions = {
   // @ts-ignore
-  replace: (node: Element) => {
-    // if this node is not an element, bail
-    if (node.type !== 'tag') {
-      return;
-    }
-
-    const replacer = replacers.get(node);
-
-    if (!replacer) {
-      return;
-    }
-
-    // eslint-disable-next-line consistent-return
-    return replacer.replace(node);
-  },
+  replace: (node: Element) => replacers.replace(node),
 };
 
 export default function HtmlContainer({ html }: { html: string }) {

@@ -12,6 +12,7 @@ export default function PageContent({ page }: { page: PageType }) {
       title={page.title}
       image={page.feature_image}
       html={page.html}
+      excerpt=''
     />
   );
 }

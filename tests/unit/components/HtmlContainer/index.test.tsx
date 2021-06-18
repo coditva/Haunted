@@ -1,7 +1,12 @@
 import type { ShallowWrapper } from 'enzyme';
 
+jest.mock('lib/components/HtmlContainer/Replacers', () => ({
+  replace: jest.fn(),
+}));
+
 import { shallow } from 'enzyme';
 import HtmlContainer from 'lib/components/HtmlContainer';
+import Replacers from 'lib/components/HtmlContainer/Replacers'; // mocked
 
 describe('HtmlContainer', () => {
   let wrapper: ShallowWrapper;
@@ -24,5 +29,9 @@ describe('HtmlContainer', () => {
     const div = wrapper.html();
 
     expect(div).toEqual('<div class="html-container"><div class="abc">testing</div></div>');
+  });
+
+  it('should call the replacer for each element', () => {
+    expect(Replacers.replace).toBeCalledTimes(2);
   });
 });

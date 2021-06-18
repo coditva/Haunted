@@ -6,7 +6,7 @@ type Props = {
   title: string,
   html: string,
   hasCover?: boolean
-  excerpt?: string,
+  excerpt: string,
   image?: string,
   publishedAt?: string,
   readingTime?: number,
@@ -20,7 +20,7 @@ export default function Page({
       {hasCover ? (
         <PageCover
           title={title}
-          excerpt={excerpt || ''}
+          excerpt={excerpt}
           image={image}
           publishedAt={publishedAt}
           readingTime={readingTime}
@@ -38,7 +38,6 @@ export default function Page({
 }
 Page.defaultProps = {
   hasCover: false,
-  excerpt: undefined,
   image: undefined,
   publishedAt: undefined,
   readingTime: undefined,
